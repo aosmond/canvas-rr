@@ -211,7 +211,8 @@ class Recording {
             elem = new OffscreenCanvas(1,1);
             elem.width = info.width;
             elem.height = info.height;
-         } else if (info.type == 'CanvasRenderingContext2D') {
+         } else if (info.type == 'CanvasRenderingContext2D' ||
+                    info.type == 'OffscreenCanvasRenderingContext2D') {
             if (info.canvas) {
                const c = make_elem(info.canvas);
                elem = c.getContext('2d');
@@ -220,6 +221,11 @@ class Recording {
             if (info.canvas) {
                const c = make_elem(info.canvas);
                elem = c.getContext('gl-2d');
+            }
+         } else if (info.type == 'ImageBitmapRenderingContext') {
+            if (info.canvas) {
+               const c = make_elem(info.canvas);
+               elem = c.getContext('bitmaprenderer');
             }
          } else {
             console.log('Warning: Unrecognized elem_info_by_key[k].type:', info.type);

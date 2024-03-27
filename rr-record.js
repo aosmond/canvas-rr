@@ -273,6 +273,8 @@ LogCanvas = (() => {
             return [to_data_url(obj)];
 
          case 'CanvasRenderingContext2D':
+         case 'ImageBitmapRenderingContext':
+         case 'OffscreenCanvasRenderingContext2D':
          case 'WebGLRenderingContext':
          case 'WebGL2RenderingContext':
             return undefined;
@@ -544,6 +546,8 @@ LogCanvas = (() => {
       HTMLCanvasElement,
       OffscreenCanvas,
       CanvasRenderingContext2D,
+      ImageBitmapRenderingContext,
+      OffscreenCanvasRenderingContext2D,
       Path2D,
       WebGLRenderingContext,
       WebGL2RenderingContext,
